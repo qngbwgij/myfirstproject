@@ -1,10 +1,16 @@
 <template>
-  <h2>品类</h2>
+  <div>
+    <Scl/>
+  </div>
 </template>
 
 <script>
+    import Scl from "views/activity/childComps/Leftlist"
     export default {
-        name: "Category"
+        name: "Category",
+        components: {
+          Scl
+        }
     }
 </script>
 

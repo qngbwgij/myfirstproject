@@ -1,11 +1,12 @@
 <template>
     <div class="good-list">
-      <good-list-item v-for="item in cgoods" :key="item.image" :good-item="item"/>
+      <component :is="componentna" v-for="(item, index) in cgoods" :key="index" :good-item="item"/>
     </div>
 </template>
 
 <script>
   import GoodListItem from "./GoodListItem";
+  import ActivityListItem from "./ActivityListItem";
   export default {
     name: "GoodsList",
     props:{
@@ -14,10 +15,17 @@
             default() {
                 return []
             }
+        },
+        componentna:{
+            type: Object,
+/*            default() {
+                return {};
+            }*/
         }
     },
     components:{
-      GoodListItem
+      GoodListItem,
+      ActivityListItem
     }
   }
 </script>

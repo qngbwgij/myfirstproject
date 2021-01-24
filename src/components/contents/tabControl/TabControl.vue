@@ -29,6 +29,7 @@
     },
     methods:{
       tabItemClick(index) {
+        //console.log("点击tabItem");
         this.currentIndex = index
           this.$emit('tabClick', index)
       }

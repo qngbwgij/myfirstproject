@@ -1,6 +1,6 @@
 <template>
-  <div ref="wrapper">
-    <div>
+  <div ref="wrapper" class="wrapperfirstlawer">
+    <div class="wrappersecondlawer">
       <slot></slot>
     </div>
   </div>
@@ -31,11 +31,20 @@
         mounted() {
             this.scroller = new BScroll(this.$refs.wrapper, {
                 probeType:this.probeType,
+                click:true,
+                pullUpLoad: true
             })
 
             this.scroller.on('scroll', (postion) => {
                 //console.log(postion);
                 this.$emit('scroll', postion)
+            })
+
+            this.scroller.on("pullingUp", ()=> {
+              //console.log("pullingUp开始");
+              this.$emit('pullingUptobottom')
+              this.scroller.finishPullUp()
+              //console.log("pullingUp结束");
             })
 
         },
@@ -48,6 +57,10 @@
     }
 </script>
 
+
 <style scoped>
+/*  .wrappersecondlawer{
+    height: calc(100%);
+  }*/
 
 </style>

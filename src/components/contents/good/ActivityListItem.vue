@@ -1,18 +1,23 @@
 <template>
   <div class="goods-item">
-    <img :src="goodItem.pict_url" @load="imgfinishload" alt="">
+    <a :href="goodItem.link_url">
+    <img :src="goodItem.image_link" @load="activityimgfinishload" alt="">
     <div class="goods-info">
-      <p >{{goodItem.title}}</p>
-      <span class="price">{{goodItem.zk_final_price}}元</span>
-      <span class="collect">{{goodItem.volume}}</span>
+      <p >{{goodItem.activity_name}}</p>
+ <!--     <span class="price">{{goodItem.zk_final_price}}元</span>-->
+      <img v-if="goodItem.isofficialRecom==='1'"
+           :src="goodItem.isofficialRecomimgurl"
+      >
+      <span class="collect">{{goodItem.whichplateform}}</span>
     </div>
+    </a>
   </div>
 
 </template>
 
 <script>
     export default {
-        name: "GoodListItem",
+        name: "ActivityListItem",
         props:{
             goodItem: {
                 type: Object,
@@ -22,8 +27,8 @@
             }
         },
         methods:{
-          imgfinishload(){
-            this.$bus.$emit("imgfinishload")
+          activityimgfinishload(){
+            this.$bus.$emit("activityimgfinishload")
           }
         }
     }

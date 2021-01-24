@@ -3,9 +3,11 @@ import VueRouter from 'vue-router'
 
 // 懒加载
 const Home = () => import('views/home/Home')
+const Activity = () => import('views/activity/activity')
 const Category = () => import('views/category/Category')
-const Cart = () => import('views/cart/Cart')
-const Me = () => import('views/me/Me')
+const Select = () => import('views/select/Select')
+const Searchresults = () => import('views/searchresults/Searchresults')
+
 
 Vue.use(VueRouter)
 const routes = [
@@ -19,16 +21,21 @@ const routes = [
     component:Home
   },
   {
+    path: '/activity',
+    component:Activity
+  },
+  {
     path: '/category',
     component:Category
   },
   {
-    path: '/cart',
-    component:Cart
+    path: '/select',
+    component:Select
   },
   {
-    path: '/me',
-    component:Me
+    //path: '/searchresults/:searchba',
+    path: '/searchresults',
+    component: Searchresults
   }
 ]
 const router = new VueRouter({
